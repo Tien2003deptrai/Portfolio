@@ -9,8 +9,8 @@ const Home = ({ setActiveSection }) => {
   const { t } = useTranslation();
 
   return (
-    <main className="min-h-screen flex items-center bg-[#0c0e12] text-slate-100 pt-20 sm:pt-24">
-      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 md:py-20">
+    <main className="min-h-screen flex items-center bg-[#0c0e12] text-slate-100 py-30 sm:pt-30 md:pt-30">
+      <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 md:py-30">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-10 md:gap-16">
 
           <div className="order-1 md:order-2 flex flex-col items-center">

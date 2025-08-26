@@ -4,7 +4,7 @@ const About = ({ skills }) => {
   const { t } = useTranslation();
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 bg-[#0c0e12]">
+    <section className="min-h-screen flex items-center justify-center px-6 py-30 bg-[#0c0e12]">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl font-bold text-center mb-16 bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
           {t("about.title")}

@@ -6,8 +6,8 @@ const Contact = () => {
 
   return (
     <div>
-      <section className="min-h-screen flex items-center justify-center px-6 bg-[#0c0e12]">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="min-h-screen flex items-center justify-center px-6 pt-20 bg-[#0c0e12] ">
+        <div className="max-w-7xl mx-auto text-center py-12">
           <h2 className="text-5xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
             {t('contact.title')}
           </h2>
