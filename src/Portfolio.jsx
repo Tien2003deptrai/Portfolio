@@ -11,6 +11,7 @@ import Navbar from './components/Navbar';
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -35,7 +36,7 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
 
       <main className="relative z-10">
         {activeSection === 'home' && (

@@ -3,16 +3,17 @@ import { socials } from '../../util/Social'
 import CountUp from '../../hooks/CountUp';
 import AnimatedText from '../../hooks/AnimatedText';
 import { useTranslation } from 'react-i18next';
+import avatar from '../../assets/avatar.jpg';
 
 const Home = ({ setActiveSection }) => {
   const { t } = useTranslation();
 
   return (
-    <main className="min-h-screen flex items-center bg-[#0c0e12] text-slate-100">
+    <main className="min-h-screen flex items-center bg-[#0c0e12] text-slate-100 pt-20 sm:pt-24">
       <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-10 md:gap-16">
 
-          <div className="order-1 md:order-2 flex justify-center">
+          <div className="order-1 md:order-2 flex flex-col items-center">
             <div className="relative w-60 h-60 sm:w-72 sm:h-72 md:w-[420px] md:h-[420px] grid place-items-center">
               <div
                 className="
@@ -26,7 +27,7 @@ const Home = ({ setActiveSection }) => {
               />
               <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80 rounded-full overflow-hidden bg-black shadow-2xl ring-1 ring-white/10">
                 <img
-                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800&auto=format&fit=crop"
+                  src={avatar}
                   alt="Chân dung Dương Văn Tiến"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -36,7 +37,7 @@ const Home = ({ setActiveSection }) => {
             </div>
           </div>
 
-          <div className="order-2 md:order-1 space-y-5">
+          <div className="order-2 md:order-1 flex flex-col items-center md:items-start text-center md:text-left space-y-4 mb-8">
             <p className="text-emerald-400/90 text-xl mb-3 tracking-wide">{t("home.role")}</p>
 
             <AnimatedText text={t("home.name")} />
@@ -84,14 +85,14 @@ const Home = ({ setActiveSection }) => {
         </div>
 
         <div className="mt-20 md:mt-20 pt-8 md:pt-10 border-t border-white/5">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-12 justify-items-center sm:justify-items-start">
             {[
               { n: "2", label: t("home.stats.years") },
               { n: "26", label: t("home.stats.projects") },
               { n: "8", label: t("home.stats.tech") },
               { n: "498", label: t("home.stats.commits") },
             ].map((s, i) => (
-              <div key={i} className="flex items-center gap-4">
+              <div key={i} className="flex flex-col items-center">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-100">
                   <CountUp end={Number(s.n)} duration={2000} />
                 </div>
