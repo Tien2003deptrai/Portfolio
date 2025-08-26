@@ -1,35 +1,82 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const Navbar = ({ activeSection, setActiveSection, isMenuOpen, setIsMenuOpen }) => {
+  const { t, i18n } = useTranslation();
+  const [langOpen, setLangOpen] = useState(false);
+
+  const navItems = [
+    { key: "home", label: t("nav.home") },
+    { key: "about", label: t("nav.about") },
+    { key: "projects", label: t("nav.projects") },
+    { key: "contact", label: t("nav.contact") },
+  ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    setLangOpen(false);
+  };
+
   return (
     <div>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-lg border-b border-white/10">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0c0e12]/90 backdrop-blur-lg border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
-            <div className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Tien
+          <div className="flex items-center justify-between relative">
+            <div className="text-2xl font-bold bg-gradient-to-r from-emerald-400 to-emerald-600 bg-clip-text text-transparent">
+              {t("nav.person")}
             </div>
 
-            <div className="hidden md:flex space-x-8">
-              {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+            <div className="hidden md:flex space-x-8 items-center">
+              {navItems.map((item) => (
                 <button
-                  key={item}
-                  onClick={() => setActiveSection(item.toLowerCase())}
-                  className={`relative px-4 py-2 transition-all duration-300 ${activeSection === item.toLowerCase()
-                    ? 'text-purple-400'
-                    : 'text-white/70 hover:text-white'
+                  key={item.key}
+                  onClick={() => setActiveSection(item.key)}
+                  className={`relative px-4 py-2 transition-all duration-300 ${activeSection === item.key
+                    ? "text-emerald-400"
+                    : "text-slate-400 hover:text-slate-100"
                     }`}
                 >
-                  {item}
-                  {activeSection === item.toLowerCase() && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400"></div>
+                  {item.label}
+                  {activeSection === item.key && (
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
                   )}
                 </button>
               ))}
+
+              <div className="relative">
+                <button
+                  onClick={() => setLangOpen(!langOpen)}
+                  className="flex items-center gap-2 px-4 py-2 text-slate-300 hover:text-emerald-400 transition-colors"
+                >
+                  <Globe size={18} />
+                  <span className="uppercase">{i18n.language}</span>
+                  <ChevronDown size={16} className={`${langOpen ? "rotate-180" : ""} transition-transform`} />
+                </button>
+
+                {langOpen && (
+                  <div className="absolute right-0 mt-2 w-32 bg-[#1a1d23] border border-white/10 rounded-lg shadow-lg overflow-hidden z-50">
+                    <button
+                      onClick={() => changeLanguage("en")}
+                      className={`w-full px-4 py-2 text-left hover:bg-emerald-500/20 ${i18n.language === "en" ? "text-emerald-400" : "text-slate-300"
+                        }`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("vi")}
+                      className={`w-full px-4 py-2 text-left hover:bg-emerald-500/20 ${i18n.language === "vi" ? "text-emerald-400" : "text-slate-300"
+                        }`}
+                    >
+                      Tiếng Việt
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
             <button
-              className="md:hidden"
+              className="md:hidden text-slate-100"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X /> : <Menu />}
@@ -37,26 +84,51 @@ const Navbar = ({ activeSection, setActiveSection, isMenuOpen, setIsMenuOpen }) 
           </div>
         </div>
       </nav>
+
       {isMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-black/90 backdrop-blur-lg md:hidden">
+        <div className="fixed inset-0 z-40 bg-[#0c0e12]/95 backdrop-blur-lg md:hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
-            {['Home', 'About', 'Projects', 'Contact'].map((item) => (
+            {navItems.map((item) => (
               <button
-                key={item}
+                key={item.key}
                 onClick={() => {
-                  setActiveSection(item.toLowerCase());
+                  setActiveSection(item.key);
                   setIsMenuOpen(false);
                 }}
-                className="text-2xl text-white/70 hover:text-white transition-colors"
+                className={`text-2xl transition-colors ${activeSection === item.key
+                  ? "text-emerald-400"
+                  : "text-slate-400 hover:text-slate-100"
+                  }`}
               >
-                {item}
+                {item.label}
               </button>
             ))}
+
+            <div className="flex gap-4 mt-8">
+              <button
+                onClick={() => changeLanguage("en")}
+                className={`px-4 py-2 rounded-lg border ${i18n.language === "en"
+                  ? "border-emerald-500 text-emerald-400"
+                  : "border-slate-500 text-slate-300"
+                  }`}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => changeLanguage("vi")}
+                className={`px-4 py-2 rounded-lg border ${i18n.language === "vi"
+                  ? "border-emerald-500 text-emerald-400"
+                  : "border-slate-500 text-slate-300"
+                  }`}
+              >
+                VI
+              </button>
+            </div>
           </div>
         </div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "person": "Tiến",
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "projects": "Dự án",
+    "contact": "Liên hệ"
+  },
+  "home": {
+    "role": "Lập trình viên phần mềm",
+    "name": "Dương Văn Tiến",
+    "download_cv": "Tải CV",
+    "hire_me": "Thuê mình",
+    "about": "Mình yêu thích tạo ra trải nghiệm số tinh gọn, thanh lịch và thành thạo nhiều ngôn ngữ & công nghệ để hiện thực hóa các sản phẩm đó.",
+    "stats": {
+      "years": "Năm kinh nghiệm",
+      "projects": "Dự án hoàn thành",
+      "tech": "Công nghệ thành thạo",
+      "commits": "Lần commit"
+    }
+  },
+  "about": {
+    "title": "Thông tin về tôi",
+    "desc1": "Tôi vừa tốt nghiệp ngành Kỹ thuật phần mềm tại Đại học Duy Tân, đồng thời là một lập trình viên full-stack với kinh nghiệm thực chiến qua các dự án như Sbay-Airplane, Pet Port và Sakura Nihongo.",
+    "desc2": "Tôi đam mê phát triển ứng dụng web hiện đại, đặc biệt chú trọng vào trải nghiệm người dùng (UI/UX) và tối ưu logic backend. Với tinh thần học hỏi liên tục, tôi luôn nỗ lực nâng cao kỹ năng qua việc tham gia dự án nhóm, giải quyết vấn đề thực tế và áp dụng best practices.",
+    "desc3": "Thành tích nổi bật: GPA 3.58, Top 35 LG DREAM CODE 2025, chứng chỉ AWS Cloud Practitioner Essentials. Tôi tin rằng tư duy hệ thống và thái độ cầu tiến là yếu tố then chốt để tạo ra những sản phẩm có giá trị."
+  },
+  "projects": {
+    "title": "Dự Án Nổi Bật",
+    "view": "Xem Dự Án",
+    "descriptions": {
+      "sbay": "Nền tảng đặt vé máy bay trực tuyến, tích hợp nhiều hãng bay, hỗ trợ tìm kiếm, so sánh giá và đặt vé với trải nghiệm người dùng tối ưu.",
+      "petport": "Nền tảng cộng đồng cho người nuôi thú cưng – chia sẻ kinh nghiệm, kết nối dịch vụ và thanh toán an toàn qua Stripe.",
+      "sakura": "Ứng dụng kết nối học viên tiếng Nhật với tài nguyên học tập và cộng đồng. Giao diện hiện đại, đồng bộ backend và frontend."
+    }
+  },
+  "contact": {
+    "title": "Hãy kết nối và xây dựng điều gì đó tuyệt vời",
+    "desc": "Bạn có dự án thú vị, hay cần một developer năng động đồng hành? Đừng ngần ngại, tôi luôn sẵn sàng lắng nghe và cùng bạn hiện thực hóa ý tưởng.",
+    "mail": "Gửi Email Ngay"
+  }
+}

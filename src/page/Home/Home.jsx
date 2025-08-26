@@ -1,7 +1,12 @@
 import { Download } from 'lucide-react';
 import { socials } from '../../util/Social'
+import CountUp from '../../hooks/CountUp';
+import AnimatedText from '../../hooks/AnimatedText';
+import { useTranslation } from 'react-i18next';
 
 const Home = ({ setActiveSection }) => {
+  const { t } = useTranslation();
+
   return (
     <main className="min-h-screen flex items-center bg-[#0c0e12] text-slate-100">
       <section className="w-full max-w-7xl mx-auto px-5 sm:px-6 md:px-8 py-12 md:py-20">
@@ -31,18 +36,13 @@ const Home = ({ setActiveSection }) => {
             </div>
           </div>
 
-          <div className="order-2 md:order-1">
-            <p className="text-emerald-400/90 mb-3 tracking-wide">Software Developer</p>
+          <div className="order-2 md:order-1 space-y-5">
+            <p className="text-emerald-400/90 text-xl mb-3 tracking-wide">{t("home.role")}</p>
 
-            <h1 className="font-extrabold mb-4 leading-tight"
-              style={{ fontSize: 'clamp(2rem, 4.5vw, 3.75rem)', lineHeight: 1.05 }}>
-              Xin chào, mình là
-              <span className="block text-emerald-400">Dương Văn Tiến</span>
-            </h1>
+            <AnimatedText text={t("home.name")} />
 
             <p className="text-slate-400 text-base sm:text-lg max-w-xl mb-8">
-              Mình yêu thích tạo ra trải nghiệm số tinh gọn, thanh lịch và thành thạo nhiều ngôn ngữ
-              & công nghệ để hiện thực hóa các sản phẩm đó.
+              {t("home.about")}
             </p>
 
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-8">
@@ -51,7 +51,7 @@ const Home = ({ setActiveSection }) => {
                 className="group inline-flex items-center gap-2 px-5 sm:px-6 py-3 rounded-full border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 focus:outline-none focus:ring-2 focus:ring-emerald-400/60 transition-all"
                 download
               >
-                Tải CV
+                {t("home.download_cv")}
                 <span className="grid place-items-center w-6 h-6 rounded-full border border-emerald-400/60">
                   <Download className="w-3.5 h-3.5" aria-hidden="true" />
                 </span>
@@ -62,7 +62,7 @@ const Home = ({ setActiveSection }) => {
                 className="px-5 sm:px-6 py-3 rounded-full bg-emerald-400 text-black hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/70 transition-all"
                 type="button"
               >
-                Thuê mình
+                {t("home.hire_me")}
               </button>
             </div>
 
@@ -86,17 +86,17 @@ const Home = ({ setActiveSection }) => {
         <div className="mt-20 md:mt-20 pt-8 md:pt-10 border-t border-white/5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8 md:gap-12">
             {[
-              { n: '12', l1: 'Năm', l2: 'kinh nghiệm' },
-              { n: '26', l1: 'Dự án', l2: 'hoàn thành' },
-              { n: '8', l1: 'Công nghệ', l2: 'thành thạo' },
-              { n: '498', l1: 'Lần', l2: 'commit' },
+              { n: "2", label: t("home.stats.years") },
+              { n: "26", label: t("home.stats.projects") },
+              { n: "8", label: t("home.stats.tech") },
+              { n: "498", label: t("home.stats.commits") },
             ].map((s, i) => (
               <div key={i} className="flex items-center gap-4">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-100 tabular-nums">
-                  {s.n}
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-100">
+                  <CountUp end={Number(s.n)} duration={2000} />
                 </div>
                 <div className="text-slate-400 leading-tight text-xs sm:text-sm">
-                  {s.l1}<br />{s.l2}
+                  {s.label}
                 </div>
               </div>
             ))}
