@@ -1,0 +1,42 @@
+{
+  "nav": {
+    "person": "Tien",
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "home": {
+    "role": "Software Developer",
+    "name": "Duong Van Tien",
+    "download_cv": "Download CV",
+    "hire_me": "Hire Me",
+    "about": "I love crafting clean, elegant digital experiences and mastering multiple technologies to bring products to life.",
+    "stats": {
+      "years": "Years of experience",
+      "projects": "Projects completed",
+      "tech": "Technologies mastered",
+      "commits": "Commits"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "desc1": "I recently graduated in Software Engineering from Duy Tan University, and I am a full-stack developer with hands-on experience through projects like Sbay-Airplane, Pet Port, and Sakura Nihongo.",
+    "desc2": "I am passionate about building modern web applications, focusing on user experience (UI/UX) and backend logic optimization. With a mindset of continuous learning, I always strive to improve my skills by working on team projects, solving real-world problems, and applying best practices.",
+    "desc3": "Key achievements: GPA 3.58, Top 35 LG DREAM CODE 2025, AWS Cloud Practitioner Essentials certificate. I believe systematic thinking and a growth mindset are the keys to creating valuable products."
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "view": "View Project",
+    "descriptions": {
+      "sbay": "Online flight booking platform, integrating many airlines, supporting search, price comparison and booking with optimal user experience.",
+      "petport": "Community platform for pet owners - sharing experiences, connecting services and secure payments via Stripe.",
+      "sakura": "Application connecting Japanese learners with learning resources and communities. Modern interface, synchronized backend and frontend."
+    }
+  },
+  "contact": {
+    "title": "Let's connect and build something great",
+    "desc": "Do you have an interesting project, or need a dynamic developer to accompany you? Don't hesitate, I'm always ready to listen and help you realize your ideas.",
+    "mail": "Send Email Now"
+  }
+}

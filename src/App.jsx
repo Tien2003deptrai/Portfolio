@@ -1,12 +1,12 @@
-import ModernPortfolio from './page/ModernPortfolio'
+import Portfolio from './Portfolio';
+import ResponsiveCard from './test/ResponsiveCard';
 
-function App() {
+const App = () => {
 
   return (
-    <>
-      <ModernPortfolio />
-    </>
-  )
-}
+    <Portfolio />
+    // <ResponsiveCard />
+  );
+};
 
-export default App
+export default App;
