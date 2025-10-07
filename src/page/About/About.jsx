@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
+import { skills } from "../../util/Skill";
 
-const About = ({ skills }) => {
+const About = () => {
   const { t } = useTranslation();
 
   return (

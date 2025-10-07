@@ -11,7 +11,7 @@ const AnimatedText = ({ text }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.05 }}
-          className="text-emerald-400 font-extrabold text-3xl xs:text-4xl sm:text-5xl md:text-5xl"
+          className="text-emerald-400 font-semibold text-3xl xs:text-4xl sm:text-5xl md:text-5xl"
         >
           {char}
         </motion.span>

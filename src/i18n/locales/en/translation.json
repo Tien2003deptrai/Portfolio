@@ -3,6 +3,7 @@
     "person": "Tien",
     "home": "Home",
     "about": "About",
+    "certifications": "Certifications",
     "projects": "Projects",
     "contact": "Contact"
   },
@@ -38,5 +39,11 @@
     "title": "Let's connect and build something great",
     "desc": "Do you have an interesting project, or need a dynamic developer to accompany you? Don't hesitate, I'm always ready to listen and help you realize your ideas.",
     "mail": "Send Email Now"
+  },
+  "certificationDetail": {
+    "skills": "Skills",
+    "viewCredential": "View Credential",
+    "back": "Back to Certifications",
+    "notFound": "Certification not found."
   }
 }

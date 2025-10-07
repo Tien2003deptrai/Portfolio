@@ -1,7 +1,8 @@
 import { ExternalLink, Github, Star } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { projects } from "../../util/Project";
 
-const Project = ({ projects }) => {
+const Project = () => {
   const { t } = useTranslation();
 
   return (

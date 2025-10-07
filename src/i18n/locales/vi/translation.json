@@ -3,6 +3,7 @@
     "person": "Tiến",
     "home": "Trang chủ",
     "about": "Giới thiệu",
+    "certifications": "Chứng chỉ",
     "projects": "Dự án",
     "contact": "Liên hệ"
   },
@@ -38,5 +39,11 @@
     "title": "Hãy kết nối và xây dựng điều gì đó tuyệt vời",
     "desc": "Bạn có dự án thú vị, hay cần một developer năng động đồng hành? Đừng ngần ngại, tôi luôn sẵn sàng lắng nghe và cùng bạn hiện thực hóa ý tưởng.",
     "mail": "Gửi Email Ngay"
+  },
+  "certificationDetail": {
+    "skills": "Kỹ năng",
+    "viewCredential": "Xem chứng chỉ",
+    "back": "Quay lại danh sách Chứng chỉ",
+    "notFound": "Không tìm thấy chứng chỉ."
   }
 }

@@ -1,11 +1,11 @@
 import { Download } from 'lucide-react';
 import { socials } from '../../util/Social'
+import { useTranslation } from 'react-i18next';
 import CountUp from '../../hooks/CountUp';
 import AnimatedText from '../../hooks/AnimatedText';
-import { useTranslation } from 'react-i18next';
 import avatar from '../../assets/avatar.jpg';
 
-const Home = ({ setActiveSection }) => {
+const Home = () => {
   const { t } = useTranslation();
 
   return (
@@ -59,7 +59,6 @@ const Home = ({ setActiveSection }) => {
               </a>
 
               <button
-                onClick={() => setActiveSection?.('contact')}
                 className="px-5 sm:px-6 py-3 rounded-full bg-emerald-400 text-black hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-400/70 transition-all"
                 type="button"
               >

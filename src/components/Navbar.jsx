@@ -1,16 +1,20 @@
 import { Menu, X, Globe, ChevronDown } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from "react-i18next";
+import { NavLink, useLocation } from 'react-router-dom';
 
-const Navbar = ({ activeSection, setActiveSection, isMenuOpen, setIsMenuOpen }) => {
+const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [langOpen, setLangOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { key: "home", label: t("nav.home") },
-    { key: "about", label: t("nav.about") },
-    { key: "projects", label: t("nav.projects") },
-    { key: "contact", label: t("nav.contact") },
+    { to: "/", key: "home", label: t("nav.home") },
+    { to: "/about", key: "about", label: t("nav.about") },
+    { to: "/certifications", key: "certifications", label: t("nav.certifications") },
+    { to: "/projects", key: "projects", label: t("nav.projects") },
+    { to: "/contact", key: "contact", label: t("nav.contact") },
   ];
 
   const changeLanguage = (lng) => {
@@ -28,21 +32,25 @@ const Navbar = ({ activeSection, setActiveSection, isMenuOpen, setIsMenuOpen }) 
             </div>
 
             <div className="hidden md:flex space-x-8 items-center">
-              {navItems.map((item) => (
-                <button
-                  key={item.key}
-                  onClick={() => setActiveSection(item.key)}
-                  className={`relative px-4 py-2 transition-all duration-300 ${activeSection === item.key
-                    ? "text-emerald-400"
-                    : "text-slate-400 hover:text-slate-100"
-                    }`}
-                >
-                  {item.label}
-                  {activeSection === item.key && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
-                  )}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                const isActive = location.pathname === item.to;
+                return (
+                  <NavLink
+                    key={item.key}
+                    to={item.to}
+                    className={`relative px-4 py-2 transition-all duration-300 ${isActive
+                      ? "text-emerald-400"
+                      : "text-slate-400 hover:text-slate-100"
+                      }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                    {isActive && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-emerald-400 to-emerald-600"></div>
+                    )}
+                  </NavLink>
+                );
+              })}
 
               <div className="relative">
                 <button
@@ -89,19 +97,17 @@ const Navbar = ({ activeSection, setActiveSection, isMenuOpen, setIsMenuOpen }) 
         <div className="fixed inset-0 z-40 bg-[#0c0e12]/95 backdrop-blur-lg md:hidden">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
             {navItems.map((item) => (
-              <button
+              <NavLink
                 key={item.key}
-                onClick={() => {
-                  setActiveSection(item.key);
-                  setIsMenuOpen(false);
-                }}
-                className={`text-2xl transition-colors ${activeSection === item.key
+                to={item.to}
+                onClick={() => setIsMenuOpen(false)}
+                className={({ isActive }) => `text-2xl transition-colors ${isActive
                   ? "text-emerald-400"
                   : "text-slate-400 hover:text-slate-100"
                   }`}
               >
                 {item.label}
-              </button>
+              </NavLink>
             ))}
 
             <div className="flex gap-4 mt-8">
